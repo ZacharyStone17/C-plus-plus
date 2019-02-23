@@ -1,0 +1,42 @@
+
+	#include <cstdlib>
+	#include "pch.h"
+	#include <ctime>
+	#include <iostream>
+	using namespace std;
+
+	int main()
+	{	
+		srand(time(0));
+		int guess;
+		int Number;
+		int NumGuesses = 0;
+		Number = 1 + (rand() % 100);
+		do {
+			cout << "Guess a number between 1 and 100" << endl;
+			cin >> guess;
+
+
+			if (Number > guess) {
+				cout << "Your guess is too small" << endl;
+			}
+			else if (guess > Number) {
+				cout << "Your guess is too large" << endl;
+			}
+			else {
+				cout << "Your guess is correct" << endl;
+				cout << "You have" << " " << 7 - NumGuesses << "guesses remaining" << endl;
+			}
+			NumGuesses++;
+		}
+		while (guess != Number && NumGuesses < 7); 
+		
+		if (NumGuesses > 7) {
+			cout << "You have run out of guesses" << endl;
+		}
+
+
+		return 0;
+	}
+
+
